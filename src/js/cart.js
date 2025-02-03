@@ -1,4 +1,4 @@
-import { getLocalStorage, qs, renderListWithTemplate } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs"; // Remove qs and renderListWithTemplate
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart"); // Get cart items from localStorage
@@ -40,9 +40,9 @@ function addRemoveListeners(cartItems) {
 function removeItemFromCart(cartItems) {
   cartItems.splice(1); // Remove the item from the array
   localStorage.setItem("so-cart", JSON.stringify(cartItems)); // Update localStorage immediately
-    // If cart is empty, clear the cart page
+  // If cart is empty, clear the cart page
   if (cartItems.length === 0) {
-     document.querySelector(".product-list").innerHTML = "<p>Your cart is empty</p>";
+    document.querySelector(".product-list").innerHTML = "<p>Your cart is empty</p>";
   }
 }
 
